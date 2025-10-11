@@ -40,11 +40,44 @@ $(document).ready(function () {
   });
 });
 
-// 공유하기 버튼용 함수
-// HTML 코드에서 onclick으로 해당 함수 호출
+// 공유하기 버튼 구현
+$(document).ready(function () {
+  $("#shareBtn").on("click", async function (e) {
+    e.preventDefault();
 
-// https://abangpa1ace.tistory.com/entry/JS-Web공통-링크복사-및-공유버튼-만들기
+    const shareUrl = window.location.href;
+    const shareTitle = document.title;
 
-const openClipboard = () => {
-  navigator.clipboard.writeText(window.location.href);
-};
+    // 1️. Web Share API (모바일/신형 브라우저)
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: shareTitle,
+          url: shareUrl,
+        });
+      } catch (err) {
+        console.error("Copy failed: " + err);
+      }
+    }
+
+    // 2️. Clipboard API (HTTPS 환경 필요)
+    else if (navigator.clipboard) {
+      try {
+        await navigator.clipboard.writeText(shareUrl);
+        alert("링크가 복사되었습니다! 🎉");
+      } catch (err) {
+        console.error("Copy failed: " + err);
+      }
+    }
+
+    // 3️. 완전 구형 브라우저 fallback (최신 브라우저에서는 deprecated)
+    else {
+      const tempInput = $("<input>");
+      $("body").append(tempInput);
+      tempInput.val(shareUrl).select();
+      document.execCommand("copy"); // deprecated !!
+      tempInput.remove();
+      alert("링크가 복사되었습니다! 🎉");
+    }
+  });
+});
