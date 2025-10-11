@@ -1,0 +1,29 @@
+/* Base Styles */
+
+:root {
+	--background-color: #f8f9fa;
+	--text-color: #212529;
+	--secondary-text-color: #868e96;
+	--card-background: #ffffff;
+	--shadow-color: rgba(0, 0, 0, 0.05);
+	--border-color: #dee2e6;
+	--primary-color: #339af0;
+}
+
+html {
+	scroll-behavior: auto; 
+}
+
+body {
+	font-family: 'Inter', 'Noto Sans KR', sans-serif;
+	background-color: var(--background-color);
+	color: var(--text-color);
+	text-align: center;
+	line-height: 1.6;
+	
+	/* 드래그 & 내용 복사 방지 */
+	-webkit-user-select: none !important; 
+	-moz-user-select: -moz-none !important;
+	-ms-user-select: none !important;
+	user-select: none !important;
+}

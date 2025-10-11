@@ -1,0 +1,217 @@
+@charset "UTF-8";
+
+.container {
+	max-width: 680px;
+	margin: 0 auto;
+	padding: 40px 20px;
+}
+
+
+/* Header */
+
+.header {
+	padding-top: 20px;
+	padding-bottom: 30px;
+}
+
+.header .top-notice {
+	font-size: 12px;
+	color: var(--secondary-text-color);
+	margin-bottom: 40px;
+	word-break: keep-all;
+}
+
+/* Profile */
+
+.profile-image {
+	width: 120px;
+	height: 120px;
+	border-radius: 50%;
+	object-fit: cover;
+	margin: 0 auto 20px;
+	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.username {
+	font-size: 28px;
+	font-weight: 700;
+	margin-bottom: 8px;
+}
+
+.description {
+	font-size: 16px;
+	color: var(--secondary-text-color);
+	margin-bottom: 20px;
+}
+
+
+/* Link Icons */
+
+.icon-group {
+	display: flex;
+	justify-content: center;
+	height: 34px;
+	gap: 8px;
+}
+
+.youtube-icon {
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	width: 34px;
+	height: 34px;
+	background-color: #000;
+	border-radius: 50%; /* Max */
+	cursor: pointer;
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); /* 그림자 추가 */
+}
+
+.youtube-icon:hover {
+	transform: scale(1.1);
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* 호버 시 그림자 강화 */
+}
+
+.youtube-icon svg {
+	width: 16px;
+	height: 16px;
+	fill: #fff;
+}
+
+
+.share-icon {
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	width: 34px;
+	height: 34px;
+	border: 1px solid #000;
+	border-radius: 50%; /* Max */
+	cursor: pointer;
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); /* 그림자 추가 */
+}
+
+.share-icon:hover {
+	transform: scale(1.1);
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* 호버 시 그림자 강화 */
+}
+
+.share-icon svg {
+	width: 20px;
+	height: 20px;
+	fill: #000;
+}
+
+
+/* Product Search */
+
+.search-container {
+	margin-bottom: 40px;
+}
+
+#product-search {
+	width: 100%;
+	padding: 12px 16px;
+	font-size: 16px;
+	font-family: inherit;
+	border: 1px solid var(--border-color);
+	border-radius: 8px;
+	box-shadow: 0 2px 4px var(--shadow-color);
+	transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+#product-search:focus {
+	outline: none;
+	border-color: var(--primary-color);
+	box-shadow: 0 0 0 3px rgba(51, 154, 240, 0.2);
+}
+
+/* Product Card */
+
+.product-list {
+	display: grid;
+	gap: 20px;
+}
+
+.product-card {
+	display: flex;
+	align-items: center;
+	background-color: var(--card-background);
+	padding: 16px;
+	border-radius: 12px;
+	box-shadow: 0 4px 12px var(--shadow-color);
+	text-align: left;
+	transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.product-card:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.product-image {
+	width: 60px;
+	height: 60px;
+	border-radius: 8px;
+	object-fit: cover;
+	margin-right: 20px;
+	flex-shrink: 0;
+}
+
+.product-name {
+	font-size: 18px;
+	font-weight: 700;
+}
+
+.product-card {
+	opacity: 0;
+	transform: translateY(30px);
+	/* TODO: transition 확인 필요 */
+	transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.product-card.is-visible {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+
+/* Footer */
+
+.footer {
+	padding: 60px 20px 40px;
+	font-size: 14px;
+	color: var(--secondary-text-color);
+}
+
+
+/* Responsive Design (Using Media Query) */
+
+@media (max-width: 768px) {
+	.container {
+		padding: 30px 15px;
+	}
+
+	.header .top-notice {
+		font-size: 11px;
+		margin-bottom: 30px;
+	}
+
+	.profile-image {
+		width: 100px;
+		height: 100px;
+	}
+	
+	.username {
+		font-size: 24px;
+	}
+
+	.description {
+		font-size: 15px;
+	}
+
+	.product-name {
+		font-size: 16px;
+	}
+}
